@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cortex Media — Набор в команду</title>
+  <meta name="description" content="Набор в медиа-команду Cortex Client. Для YouTube, YouTube Shorts и TikTok блогеров. Стань частью одного из самых крупных Minecraft-проектов." />
+  <link rel="icon" type="image/svg+xml" href="logotype.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" href="fonts/advaken-sans-expanded.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="config.js"></script>
+</head>
+<body>
+  <!-- Glow background -->
+  <div class="bg-glow">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
+  </div>
+
+  <!-- Noise overlay -->
+  <div class="noise"></div>
+
+  <!-- Header -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">
+          <img src="logotype.svg" alt="Cortex" width="32" height="32" />
+        </span>
+        <span class="logo-text">Cortex</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#hero">
+          <span class="ic"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg></span>
+          Главная
+        </a>
+        <a href="#perks">
+          <span class="ic"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="m12 2 3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
+          Преимущества
+        </a>
+        <a href="#requirements">
+          <span class="ic"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></span>
+          Требования
+        </a>
+        <a href="#levels">
+          <span class="ic"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M5 3h14v4l-5 5 5 5v4H5v-4l5-5-5-5V3z"/></svg></span>
+          Условия
+        </a>
+        <a href="#faq">
+          <span class="ic"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 17h-2v-2h2zm2.07-7.75-.9.92A3.4 3.4 0 0 0 13 14.5h-2v-.5a4 4 0 0 1 1.17-2.83l1.24-1.26A2 2 0 1 0 10 8.5H8a4 4 0 1 1 7.07 2.75z"/></svg></span>
+          FAQ
+        </a>
+      </nav>
+
+      <a href="#apply" class="btn btn-primary nav-cta">Подать заявку</a>
+      <button class="burger" aria-label="menu" id="burger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="badge">
+            <span class="badge-dot"></span> Cortex Client • Media Team
+          </span>
+          <h1 class="hero-title">
+            <span class="t-white">Медиа</span><br/>
+            <span class="t-grad">Набор</span>
+          </h1>
+          <p class="hero-sub">
+            Присоединяйся к команде создателей контента Cortex Client. Делай видео, расти вместе с проектом и получай эксклюзивные бонусы, доступы и поддержку.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#apply" class="btn btn-primary">
+              <span>Стать частью команды</span>
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M5 12h12.17l-3.58-3.59L15 7l6 6-6 6-1.41-1.41L17.17 14H5v-2z"/></svg>
+            </a>
+            <a href="#perks" class="btn btn-ghost">
+              <span>Что мы предлагаем</span>
+            </a>
+          </div>
+
+          <div class="hero-tags">
+            <span class="tag">YouTube</span>
+            <span class="tag">YouTube Shorts</span>
+            <span class="tag">TikTok</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" data-delay="150">
+          <div class="card-stack">
+            <div class="floater f1">
+              <span class="float-line"></span>
+              <span class="float-line short"></span>
+            </div>
+            <div class="floater f2">
+              <span class="float-line"></span>
+              <span class="float-line short"></span>
+            </div>
+            <div class="hero-card">
+              <div class="hero-card-grid-bg"></div>
+              <div class="hero-card-inner">
+                <div class="cc-logo">
+                  <img src="logotype.svg" alt="Cortex Client" width="180" height="180" />
+                </div>
+                <div class="hero-card-grid">
+                  <div class="hcg-line"></div>
+                  <div class="hcg-line short"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#perks" class="scroll-down" aria-label="scroll">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+      </a>
+
+      <!-- Stats strip -->
+      <div class="container">
+        <div class="stats">
+          <div class="stat reveal">
+            <div class="stat-ic">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-8 0a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4Zm8 0c-.29 0-.62.02-.97.05A5.74 5.74 0 0 1 18 17v3h6v-3c0-2.66-5.33-4-8-4Z"/></svg>
+            </div>
+            <div>
+              <div class="stat-label">Пользователи</div>
+              <div class="stat-value" data-count="17000" data-suffix="+">0</div>
+            </div>
+          </div>
+          <div class="stat reveal" data-delay="80">
+            <div class="stat-ic">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2 4 6v6c0 5 3.4 9.7 8 10 4.6-.3 8-5 8-10V6l-8-4Z"/></svg>
+            </div>
+            <div>
+              <div class="stat-label">Запусков DLC</div>
+              <div class="stat-value" data-count="1000000" data-suffix="+">0</div>
+            </div>
+          </div>
+          <div class="stat reveal" data-delay="160">
+            <div class="stat-ic">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 4V1L7 6l5 5V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-9Z"/></svg>
+            </div>
+            <div>
+              <div class="stat-label">Обновлений</div>
+              <div class="stat-value" data-count="72" data-suffix="">0</div>
+            </div>
+          </div>
+          <div class="stat reveal" data-delay="240">
+            <div class="stat-ic">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V10h14v10Z"/></svg>
+            </div>
+            <div>
+              <div class="stat-label">Дней с открытия</div>
+              <div class="stat-value" data-count="1998" data-suffix="">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERKS -->
+    <section class="section" id="perks">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">ПРЕИМУЩЕСТВА</h2>
+          <span class="section-line"></span>
+          <p class="section-sub">Что ты получаешь, став частью медиа-команды Cortex Client</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="perk reveal">
+            <span class="perk-line"></span>
+            <span class="perk-num">01</span>
+            <h3>Статус медиа</h3>
+            <p>Получай официальный статус «Медиа» в Discord и закрытую роль с доступом к отдельной ветке для публикации своих видео.</p>
+          </article>
+
+          <article class="perk reveal" data-delay="80">
+            <span class="perk-line"></span>
+            <span class="perk-num">02</span>
+            <h3>Бесплатная подписка</h3>
+            <p>Полный доступ ко всем DLC Cortex Client на время сотрудничества. Никаких ограничений на функционал.</p>
+          </article>
+
+          <article class="perk reveal" data-delay="160">
+            <span class="perk-line"></span>
+            <span class="perk-num">03</span>
+            <h3>Личное промо</h3>
+            <p>Персональная промо-ссылка с повышенным процентом от каждой покупки по ней. Стабильный пассивный доход.</p>
+          </article>
+
+          <article class="perk reveal" data-delay="240">
+            <span class="perk-line"></span>
+            <span class="perk-num">04</span>
+            <h3>Раннее тестирование</h3>
+            <p>Узнавай о фичах раньше всех, тестируй закрытые сборки и влияй на развитие продукта своим фидбеком.</p>
+          </article>
+
+          <article class="perk reveal" data-delay="320">
+            <span class="perk-line"></span>
+            <span class="perk-num">05</span>
+            <h3>Поддержка 24/7</h3>
+            <p>Личный менеджер, помощь с идеями и оформлением. Мы всегда на связи и готовы помочь с продвижением.</p>
+          </article>
+
+          <article class="perk reveal" data-delay="400">
+            <span class="perk-line"></span>
+            <span class="perk-num">06</span>
+            <h3>Раскрутка канала</h3>
+            <p>Репосты в наших соц. сетях, кросс-промо с другими блогерами команды и помощь в развитии аудитории.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- REQUIREMENTS -->
+    <section class="section" id="requirements">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">ТРЕБОВАНИЯ</h2>
+          <span class="section-line"></span>
+          <p class="section-sub">Минимальные критерии для каждой платформы</p>
+        </div>
+
+        <div class="req-grid">
+          <article class="req-card reveal">
+            <div class="req-head">
+              <span class="req-ic yt">
+                <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M21.6 7.2a2.5 2.5 0 0 0-1.7-1.8C18 5 12 5 12 5s-6 0-7.9.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.7 1.8C6 19 12 19 12 19s6 0 7.9-.4a2.5 2.5 0 0 0 1.7-1.8c.3-1.6.4-3.2.4-4.8a26 26 0 0 0-.4-4.8ZM10 15V9l5 3-5 3Z"/></svg>
+              </span>
+              <h3>YouTube</h3>
+            </div>
+            <ul class="req-list">
+              <li><span class="dot"></span><span>От <b>500</b> подписчиков <em>(есть исключения)</em></span></li>
+              <li><span class="dot"></span><span>Средний охват <b>300–500+</b> просмотров</span></li>
+              <li><span class="dot"></span><span>Минимум <b>2</b> видео в неделю</span></li>
+              <li><span class="dot"></span><span>Качественный монтаж и аудио</span></li>
+              <li><span class="dot"></span><span>Регулярный выход роликов</span></li>
+              <li><span class="dot"></span><span>Тематика: Minecraft / Gaming</span></li>
+            </ul>
+          </article>
+
+          <article class="req-card reveal featured" data-delay="100">
+            <span class="req-badge">Популярно</span>
+            <div class="req-head">
+              <span class="req-ic tt">
+                <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M16 3a5 5 0 0 0 5 5v3a8 8 0 0 1-5-1.7V16a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V3h3Z"/></svg>
+              </span>
+              <h3>TikTok</h3>
+            </div>
+            <ul class="req-list">
+              <li><span class="dot"></span><span>От <b>1 000</b> подписчиков <em>(есть исключения)</em></span></li>
+              <li><span class="dot"></span><span>Средние охваты <b>400–500+</b> просмотров</span></li>
+              <li><span class="dot"></span><span>Динамичные ролики и нарезки</span></li>
+              <li><span class="dot"></span><span>Минимум <b>3</b> видео в неделю</span></li>
+              <li><span class="dot"></span><span>Без накруток и ботов</span></li>
+            </ul>
+          </article>
+
+          <article class="req-card reveal" data-delay="200">
+            <div class="req-head">
+              <span class="req-ic sh">
+                <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M17.8 7.2a4.4 4.4 0 0 0-2.2-3.7L9.4 7.4a3.9 3.9 0 0 0 0 6.7l2 1.2-4.3 2.5A4.4 4.4 0 0 0 9.3 22l6.2-3.6a3.9 3.9 0 0 0 0-6.7l-2-1.2 4.3-2.5a4.4 4.4 0 0 0 0-.8Z"/></svg>
+              </span>
+              <h3>YouTube Shorts</h3>
+            </div>
+            <ul class="req-list">
+              <li><span class="dot"></span><span>От <b>500</b> подписчиков <em>(есть исключения)</em></span></li>
+              <li><span class="dot"></span><span>Средние охваты <b>700+</b> просмотров</span></li>
+              <li><span class="dot"></span><span>Динамичные ролики и нарезки</span></li>
+              <li><span class="dot"></span><span>Минимум <b>3</b> видео в неделю</span></li>
+              <li><span class="dot"></span><span>Без накруток и ботов</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEVELS / CONDITIONS -->
+    <section class="section" id="levels">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">УСЛОВИЯ И УРОВНИ</h2>
+          <span class="section-line"></span>
+          <p class="section-sub">Что ты получаешь и как растёт твой % с покупки по промо</p>
+        </div>
+
+        <div class="levels-intro reveal">
+          <p>
+            От нас ты получаешь <b>статус «Медиа»</b>, <b>роль в Discord</b> с доступом в отдельную ветку для публикации своих видео,
+            <b>бесплатную подписку</b>, а также <b>личное промо с выплатами</b>. Промо есть у каждого юзера, но у медиа — повышенный процент:
+            чем сильнее канал, тем выше уровень и доход.
+          </p>
+        </div>
+
+        <div class="levels-grid">
+          <article class="level reveal">
+            <div class="level-head">
+              <span class="level-tag">Базовый</span>
+              <span class="level-num">01</span>
+            </div>
+            <h3>Медиа • 1 уровень</h3>
+            <div class="level-percent">
+              <span class="lp-value">15<small>%</small></span>
+              <span class="lp-sub">с покупки по промо</span>
+            </div>
+            <ul class="level-list">
+              <li><span class="check"></span> Бесплатная подписка</li>
+              <li><span class="check"></span> Дефолтное цифровое промо</li>
+              <li><span class="check"></span> Роль в Discord и медиа-ветка</li>
+              <li><span class="check"></span> Доступ при выполнении базовых требований</li>
+            </ul>
+          </article>
+
+          <article class="level reveal featured" data-delay="100">
+            <span class="level-badge">Популярно</span>
+            <div class="level-head">
+              <span class="level-tag">Стандарт</span>
+              <span class="level-num">02</span>
+            </div>
+            <h3>Медиа • 2 уровень</h3>
+            <div class="level-percent">
+              <span class="lp-value">18<small>%</small></span>
+              <span class="lp-sub">с покупки по промо</span>
+            </div>
+            <ul class="level-list">
+              <li><span class="check"></span> Всё из 1 уровня</li>
+              <li><span class="check"></span> <b>Кастомное</b> промо</li>
+              <li><span class="check"></span> Повышенный процент выплат</li>
+              <li><span class="check"></span> Расширенная поддержка от менеджера</li>
+            </ul>
+          </article>
+
+          <article class="level reveal" data-delay="200">
+            <div class="level-head">
+              <span class="level-tag">Pro</span>
+              <span class="level-num">03</span>
+            </div>
+            <h3>Сильный бэкграунд</h3>
+            <div class="level-percent">
+              <span class="lp-value">Индив.<small></small></span>
+              <span class="lp-sub">% и условия</span>
+            </div>
+            <ul class="level-list">
+              <li><span class="check"></span> Кастом-промо сразу</li>
+              <li><span class="check"></span> Повышенный % с покупки</li>
+              <li><span class="check"></span> Для каналов от <b>500+</b> просмотров на YT</li>
+              <li><span class="check"></span> Или от <b>1300+</b> просмотров в TikTok</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="levels-note reveal" data-delay="160">
+          <span class="note-ic">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 15h-2v-6h2Zm0-8h-2V7h2Z"/></svg>
+          </span>
+          <p>Если у тебя сильный бэкграунд медиа — мы с радостью выдадим кастом-промо и повышенный процент сразу, без ожидания апгрейда.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">КАК ПОПАСТЬ</h2>
+          <span class="section-line"></span>
+          <p class="section-sub">Четыре простых шага до старта в команде</p>
+        </div>
+
+        <div class="steps">
+          <div class="step reveal">
+            <span class="step-num">1</span>
+            <h4>Заявка</h4>
+            <p>Заполни форму ниже: укажи ссылки на свои каналы и контактный Telegram.</p>
+          </div>
+          <div class="step-arrow"></div>
+          <div class="step reveal" data-delay="80">
+            <span class="step-num">2</span>
+            <h4>Проверка</h4>
+            <p>Менеджер проверит статистику и качество контента в течение 24 часов.</p>
+          </div>
+          <div class="step-arrow"></div>
+          <div class="step reveal" data-delay="160">
+            <span class="step-num">3</span>
+            <h4>Собеседование</h4>
+            <p>Короткий созвон или диалог в Telegram, обсуждение условий сотрудничества.</p>
+          </div>
+          <div class="step-arrow"></div>
+          <div class="step reveal" data-delay="240">
+            <span class="step-num">4</span>
+            <h4>Старт</h4>
+            <p>Получаешь доступ, бонусы и личного куратора. Делаешь контент и зарабатываешь.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPLY FORM -->
+    <section class="section" id="apply">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">ПОДАТЬ ЗАЯВКУ</h2>
+          <span class="section-line"></span>
+          <p class="section-sub">Заполни форму — ответим в течение 24 часов</p>
+        </div>
+
+        <form class="apply-form reveal" id="applyForm" novalidate>
+          <div class="form-row">
+            <label class="field">
+              <span>Login в чите</span>
+              <input type="text" name="login" placeholder="newdoq" required />
+            </label>
+            <label class="field">
+              <span>Ваше имя</span>
+              <input type="text" name="name" placeholder="Александр" required />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label class="field">
+              <span>Ваш Telegram</span>
+              <input type="text" name="telegram" placeholder="@username" required pattern="^@?[A-Za-z0-9_]{4,32}$" title="Введите Telegram-ник, например @readwayz" />
+            </label>
+            <label class="field">
+              <span>Discord</span>
+              <input type="text" name="discord" placeholder="username" />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label class="field">
+              <span>Платформа</span>
+              <div class="select-wrap">
+                <select name="platform" required>
+                  <option value="">Выбрать платформу</option>
+                  <option>YouTube</option>
+                  <option>YouTube Shorts</option>
+                  <option>TikTok</option>
+                  <option>Несколько платформ</option>
+                </select>
+              </div>
+            </label>
+            <label class="field">
+              <span>Подписчики</span>
+              <input type="text" name="subs" placeholder="например: 12 000" required />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Ссылка на канал</span>
+            <input type="url" name="link" placeholder="https://" required />
+          </label>
+
+          <label class="field">
+            <span>Расскажи о себе</span>
+            <textarea name="about" rows="4" placeholder="Какой контент снимаешь, чем интересен и почему именно ты?"></textarea>
+          </label>
+
+          <label class="checkbox">
+            <input type="checkbox" required />
+            <span class="check-mark"></span>
+            <span>Я ознакомлен с условиями и согласен на обработку данных</span>
+          </label>
+
+          <button type="submit" class="btn btn-primary btn-lg">
+            <span>Отправить заявку</span>
+            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+          </button>
+
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+
+          <div class="form-note">
+            Уже подавал заявку? Свяжись с менеджером в Discord/Telegram:
+            <a href="https://t.me/readwayz" target="_blank" rel="noopener">@readwayz</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container faq-wrap">
+        <div class="section-head reveal">
+          <h2 class="section-title">FAQ</h2>
+          <span class="section-line"></span>
+          <p class="section-sub">Ответы на частые вопросы</p>
+        </div>
+
+        <div class="faq">
+          <details class="faq-item reveal">
+            <summary>Сколько я буду зарабатывать?</summary>
+            <div class="faq-body">Выплаты идут с твоего промо: 15% на 1 уровне и 18% на 2 уровне. При сильном бэкграунде условия обсуждаются индивидуально.</div>
+          </details>
+          <details class="faq-item reveal" data-delay="60">
+            <summary>Подойдёт ли мой канал, если он на другую тематику?</summary>
+            <div class="faq-body">Основная тематика — Minecraft и игры. Если у тебя смежная тема (геймдев, читы, обзоры) — пиши, рассмотрим индивидуально.</div>
+          </details>
+          <details class="faq-item reveal" data-delay="120">
+            <summary>Можно ли совмещать с другими проектами?</summary>
+            <div class="faq-body">Да, если это не прямые конкуренты. Совмещение обсуждается на этапе собеседования.</div>
+          </details>
+          <details class="faq-item reveal" data-delay="180">
+            <summary>Как быстро рассмотрят заявку?</summary>
+            <div class="faq-body">Среднее время ответа — до 24 часов. В часы пик — до 48 часов.</div>
+          </details>
+          <details class="faq-item reveal" data-delay="240">
+            <summary>Что делать, если охватов меньше требуемых?</summary>
+            <div class="faq-body">Подавай заявку всё равно. Если контент качественный и есть динамика роста — мы рассмотрим тебя индивидуально.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA STRIP -->
+    <section class="cta-strip">
+      <div class="container cta-inner reveal">
+        <div>
+          <h3>Готов стать частью команды?</h3>
+          <p>Прямо сейчас — заполни заявку и получи ответ в течение суток.</p>
+        </div>
+        <a href="#apply" class="btn btn-primary btn-lg">
+          <span>Подать заявку</span>
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M5 12h12.17l-3.58-3.59L15 7l6 6-6 6-1.41-1.41L17.17 14H5v-2z"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-mark">
+            <img src="logotype.svg" alt="Cortex Media" width="26" height="26" />
+          </span>
+          <span class="logo-text">Cortex Media</span>
+        </a>
+        <p>Медиа-направление проекта Cortex Client. Делаем контент вместе.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Навигация</h5>
+        <a href="#hero">Главная</a>
+        <a href="#perks">Преимущества</a>
+        <a href="#requirements">Требования</a>
+        <a href="#levels">Условия</a>
+        <a href="#apply">Заявка</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Проект</h5>
+        <a href="https://cortexclient.com" target="_blank" rel="noopener">Основной сайт</a>
+        <a href="https://t.me/readwayz" target="_blank" rel="noopener">Поддержка</a>
+        <a href="https://t.me/cortexclient_com" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://discord.gg/JNMZMmHeRw" target="_blank" rel="noopener">Discord</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Соц. сети</h5>
+        <div class="socials">
+          <a href="https://t.me/cortexclient_com" target="_blank" rel="noopener" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M9.78 15.27 9.6 18.7c.4 0 .57-.17.78-.37l1.86-1.79 3.86 2.83c.7.39 1.21.18 1.4-.65l2.55-11.94c.25-1.05-.38-1.46-1.07-1.2L4.4 10.36c-1.04.4-1.02.98-.18 1.24l3.85 1.2 8.94-5.63c.42-.25.81-.11.49.16Z"/></svg>
+          </a>
+          <a href="https://discord.gg/JNMZMmHeRw" target="_blank" rel="noopener" aria-label="Discord">
+            <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20 5.5A18 18 0 0 0 15.5 4l-.3.4a14 14 0 0 0-6.4 0L8.5 4A18 18 0 0 0 4 5.5C1.5 9 1 12.5 1.3 15.9c1.6 1.2 3.2 1.9 4.7 2.4.4-.5.7-1 1-1.6-.5-.2-1-.4-1.5-.8.1-.1.3-.2.4-.3 2.7 1.3 5.7 1.3 8.4 0l.4.3c-.5.4-1 .6-1.5.8.3.6.6 1.1 1 1.6 1.5-.5 3-1.2 4.7-2.4.3-3.7-.4-7-2.9-10.4ZM8.5 13.6c-1 0-1.7-.9-1.7-2s.7-2 1.7-2 1.7.9 1.7 2-.7 2-1.7 2Zm7 0c-1 0-1.7-.9-1.7-2s.7-2 1.7-2 1.7.9 1.7 2-.7 2-1.7 2Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© 2025 Cortex Client. Все права защищены.</span>
+      <span>Сделано с ♥ командой Cortex</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
