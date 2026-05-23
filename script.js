@@ -204,6 +204,10 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     };
 
+    // Timeout 10s — иначе fetch виснет навсегда, если api.telegram.org заблокирован у ISP
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+
     try {
       const res = await fetch(`https://api.telegram.org/bot${cfg.telegramBotToken}/sendMessage`, {
         method: 'POST',
@@ -214,15 +218,35 @@ document.addEventListener('DOMContentLoaded', () => {
           parse_mode: 'HTML',
           disable_web_page_preview: true,
           reply_markup
-        })
+        }),
+        signal: controller.signal
       });
+      clearTimeout(timeoutId);
       const data = await res.json();
       if (!data.ok) console.warn('Telegram error:', data);
       return !!data.ok;
     } catch (e) {
+      clearTimeout(timeoutId);
       console.warn('Telegram fetch failed:', e);
       return false;
     }
+  };
+
+  // Фоллбек: открыть чат с менеджером в Telegram с заполненным сообщением,
+  // если api.telegram.org недоступен (например, заблокирован у ISP).
+  const openManagerChatWithEntry = (entry) => {
+    const mgr = (cfg.managerTelegram || 'readwayz').replace(/^@/, '');
+    const text =
+      `Заявка в Cortex Media\n\n` +
+      `Login: ${entry.login}\n` +
+      `Имя: ${entry.name}\n` +
+      `Telegram: ${entry.telegram}\n` +
+      (entry.discord ? `Discord: ${entry.discord}\n` : '') +
+      `Платформа: ${entry.platform}\n` +
+      `Подписчики: ${entry.subs}\n` +
+      `Канал: ${entry.link}\n` +
+      (entry.about ? `\nО себе: ${entry.about}\n` : '');
+    window.open(`https://t.me/${mgr}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
   };
 
   function escapeHtml(s) {
@@ -268,11 +292,11 @@ document.addEventListener('DOMContentLoaded', () => {
         formStatus.classList.add('success');
         form.reset();
       } else {
-        btn.innerHTML = '<span>Не удалось отправить</span>';
-        btn.style.background = 'linear-gradient(135deg, #ff6b6b, #e23c3c)';
+        btn.innerHTML = '<span>Открываю Telegram...</span>';
         const mgr = cfg.managerTelegram ? '@' + cfg.managerTelegram : '@readwayz';
-        formStatus.textContent = `Не получилось отправить заявку. Напиши менеджеру напрямую: ${mgr}`;
+        formStatus.innerHTML = `Прямая отправка недоступна (возможно, ваш провайдер блокирует Telegram API). Открываем чат с менеджером ${mgr} с заполненным сообщением — просто отправьте его.`;
         formStatus.classList.add('error');
+        openManagerChatWithEntry(entry);
       }
 
       setTimeout(() => {
