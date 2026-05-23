@@ -1021,15 +1021,21 @@ img, svg { display: block; max-width: 100%; }
 }
 .level-list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   font-size: 15px;
   font-weight: 500;
+  line-height: 1.5;
   color: var(--muted);
   transition: color .25s;
 }
 .level:hover .level-list li { color: #cbc5dd; }
-.level-list li b { color: var(--text); font-weight: 700; }
+.level-list li > span:last-child { flex: 1; }
+.level-list li b {
+  color: var(--text);
+  font-weight: 700;
+  white-space: nowrap;
+}
 .check {
   width: 18px; height: 18px;
   border-radius: 6px;
@@ -1037,6 +1043,7 @@ img, svg { display: block; max-width: 100%; }
   border: 1px solid rgba(184, 96, 255, 0.3);
   flex-shrink: 0;
   position: relative;
+  margin-top: 3px;
 }
 .check::after {
   content: '';
