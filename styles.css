@@ -1087,6 +1087,16 @@ img, svg { display: block; max-width: 100%; }
 .form-status.error { color: #ff7b7b; }
 .form-status.success { color: #6ddc8b; }
 
+/* honeypot — visible to bots only, hidden for humans */
+.hp {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 /* ============ Steps ============ */
 .steps {
   display: grid;

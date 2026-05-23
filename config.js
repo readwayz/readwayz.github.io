@@ -1,19 +1,15 @@
 /**
  * Cortex Media — Конфигурация (статическая, для GitHub Pages)
  *
- * ⚠️ Этот файл публичный. Не клади сюда секреты, которые не должны попасть наружу.
- *
- * Все заявки уходят в Telegram через бота. Чтобы это работало:
- *   1. @BotFather → /newbot → получить TOKEN
- *   2. Написать своему боту любое сообщение (/start)
- *   3. Открыть https://api.telegram.org/bot<TOKEN>/getUpdates → найти chat.id
- *   4. Подставить ниже telegramBotToken и telegramChatId
+ * Никаких секретов. Заявки уходят через Cloudflare Worker —
+ * токен бота и chat_id хранятся на сервере Cloudflare как secret.
  */
 
 window.CORTEX_CONFIG = {
-  // ---- Telegram-бот для уведомлений о заявках ----
-  telegramBotToken: '8763202847:AAEEzMmjaKD-WYcPhbehoN_u5i6lqIcMgfM',
-  telegramChatId:   '1041601126',
+  // URL Cloudflare Worker, принимающего заявки.
+  // Получишь его после деплоя воркера (см. README.md → раздел Cloudflare Worker).
+  // Пример: 'https://cortex-media.readwayz.workers.dev'
+  applyEndpoint: 'https://cortex-media-bot.lolpipiskaboom.workers.dev',
 
   // ---- Контакты ----
   managerTelegram: 'readwayz',

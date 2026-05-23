@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta name="robots" content="index,follow" />
   <title>Cortex Media — Набор в команду</title>
   <meta name="description" content="Набор в медиа-команду Cortex Client. Для YouTube, YouTube Shorts и TikTok блогеров. Стань частью одного из самых крупных Minecraft-проектов." />
   <link rel="icon" type="image/svg+xml" href="logotype.svg" />
@@ -418,6 +421,13 @@
         </div>
 
         <form class="apply-form reveal" id="applyForm" novalidate>
+          <!-- honeypot: скрытое поле для ботов. Реальный пользователь его не видит. -->
+          <div class="hp" aria-hidden="true">
+            <label>Website (do not fill)
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+
           <div class="form-row">
             <label class="field">
               <span>Login в чите</span>

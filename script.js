@@ -170,70 +170,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- Form submit (Telegram only) ---------- */
+  /* ---------- Form submit (через прокси на Cloudflare Workers) ---------- */
   const form = document.getElementById('applyForm');
   const formStatus = document.getElementById('formStatus');
 
   const cfg = window.CORTEX_CONFIG || {};
 
-  const sendToTelegram = async (entry) => {
-    if (!cfg.telegramBotToken || !cfg.telegramChatId) {
-      console.warn('Telegram bot is not configured in config.js');
-      return false;
-    }
-
-    const text =
-      `🆕 <b>Новая заявка — Cortex Media</b>\n\n` +
-      `👤 <b>Login:</b> <code>${escapeHtml(entry.login)}</code>\n` +
-      `📛 <b>Имя:</b> ${escapeHtml(entry.name)}\n` +
-      `✈️ <b>Telegram:</b> ${escapeHtml(entry.telegram)}\n` +
-      (entry.discord ? `💬 <b>Discord:</b> <code>${escapeHtml(entry.discord)}</code>\n` : '') +
-      `🎬 <b>Платформа:</b> ${escapeHtml(entry.platform)}\n` +
-      `👥 <b>Подписчики:</b> ${escapeHtml(entry.subs)}\n` +
-      `🔗 <b>Канал:</b> ${escapeHtml(entry.link)}\n` +
-      (entry.about ? `\n📝 ${escapeHtml(entry.about)}\n` : '') +
-      `\n🕒 ${new Date(entry.createdAt).toLocaleString('ru-RU')}`;
-
-    const tgUser = (entry.telegram || '').replace(/^@/, '');
-    const reply_markup = {
-      inline_keyboard: [
-        [
-          { text: '✈️ Написать', url: `https://t.me/${tgUser}` },
-          { text: '🔗 Открыть канал', url: entry.link }
-        ]
-      ]
-    };
-
-    // Timeout 10s — иначе fetch виснет навсегда, если api.telegram.org заблокирован у ISP
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000);
-
-    try {
-      const res = await fetch(`https://api.telegram.org/bot${cfg.telegramBotToken}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: cfg.telegramChatId,
-          text,
-          parse_mode: 'HTML',
-          disable_web_page_preview: true,
-          reply_markup
-        }),
-        signal: controller.signal
-      });
-      clearTimeout(timeoutId);
-      const data = await res.json();
-      if (!data.ok) console.warn('Telegram error:', data);
-      return !!data.ok;
-    } catch (e) {
-      clearTimeout(timeoutId);
-      console.warn('Telegram fetch failed:', e);
-      return false;
-    }
-  };
-
-  // Фоллбек: открыть чат с менеджером в Telegram с заполненным сообщением,
-  // если api.telegram.org недоступен (например, заблокирован у ISP).
+  // Фоллбек: открыть чат с менеджером в Telegram с заполненным сообщением.
   const openManagerChatWithEntry = (entry) => {
     const mgr = (cfg.managerTelegram || 'readwayz').replace(/^@/, '');
     const text =
@@ -249,11 +192,33 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open(`https://t.me/${mgr}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
   };
 
-  function escapeHtml(s) {
-    return String(s ?? '').replace(/[&<>"]/g, c => ({
-      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'
-    })[c]);
-  }
+  const sendThroughProxy = async (entry) => {
+    if (!cfg.applyEndpoint) {
+      console.warn('applyEndpoint is not set in config.js');
+      return false;
+    }
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 12000);
+    try {
+      const res = await fetch(cfg.applyEndpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(entry),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) {
+        console.warn('proxy error:', res.status, data);
+        return false;
+      }
+      return true;
+    } catch (e) {
+      clearTimeout(timeoutId);
+      console.warn('proxy fetch failed:', e);
+      return false;
+    }
+  };
 
   if (form) {
     form.addEventListener('submit', async (e) => {
@@ -274,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         subs:     (data.subs || '').trim(),
         link:     (data.link || '').trim(),
         about:    (data.about || '').trim(),
+        website:  (data.website || '').trim(), // honeypot
         createdAt: new Date().toISOString()
       };
 
@@ -283,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
       formStatus.textContent = '';
       formStatus.className = 'form-status';
 
-      const ok = await sendToTelegram(entry);
+      const ok = await sendThroughProxy(entry);
 
       if (ok) {
         btn.innerHTML = '<span>✓ Заявка отправлена</span>';
@@ -294,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         btn.innerHTML = '<span>Открываю Telegram...</span>';
         const mgr = cfg.managerTelegram ? '@' + cfg.managerTelegram : '@readwayz';
-        formStatus.innerHTML = `Прямая отправка недоступна (возможно, ваш провайдер блокирует Telegram API). Открываем чат с менеджером ${mgr} с заполненным сообщением — просто отправьте его.`;
+        formStatus.textContent = `Не удалось отправить автоматически. Открываем чат с менеджером ${mgr} с заполненным сообщением — просто нажмите «Отправить».`;
         formStatus.classList.add('error');
         openManagerChatWithEntry(entry);
       }
